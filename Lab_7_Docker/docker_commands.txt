@@ -1,0 +1,16 @@
+Commands:
+
+docker pull hello-world
+docker run hello-world
+docker run -it ubuntu
+exit
+docker stop <id>
+
+Docker Network:
+
+1.docker run -d -p 27017:27017 --name mongo --network mango-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
+2.docker network inspect mango-network
+
+Running mongo-express
+
+docker run -d -p 8081:8081 --name mongo-express --network mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -e ME_CONFIG_MONGODB_UPL="//admin:admin@mongo:27017" mongo-express
